@@ -44,6 +44,7 @@ fun App() {
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             BoxWithConstraints(Modifier.fillMaxSize().safeDrawingPadding()) {
                 val wide = maxWidth > 720.dp
+                val panelHeight = maxHeight * 0.42f
 
                 val fractal: @Composable (Modifier) -> Unit = { m ->
                     FractalView(
@@ -86,7 +87,7 @@ fun App() {
                 } else {
                     Column(Modifier.fillMaxSize()) {
                         fractal(Modifier.fillMaxWidth().weight(1f))
-                        controls(Modifier.fillMaxWidth().height(maxHeight * 0.42f))
+                        controls(Modifier.fillMaxWidth().height(panelHeight))
                     }
                 }
             }
